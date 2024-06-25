@@ -1,0 +1,1 @@
+module.exports = {CLIENT:"CLIENT",STORE:"STORE",ADMIN:"ADMIN"}

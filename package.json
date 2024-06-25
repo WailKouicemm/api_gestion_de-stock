@@ -1,0 +1,31 @@
+{
+  "name": "saudi-store",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "~4.18.2",
+    "express-async-errors": "^3.1.1",
+    "express-validator": "^7.0.1",
+    "firebase-admin": "^11.8.0",
+    "jsonwebtoken": "^9.0.0",
+    "morgan": "~1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.2.4",
+    "nanoid": "^3.3.4",
+    "node-cron": "^3.0.2",
+    "node-xlsx": "^0.23.0",
+    "nodemon": "^2.0.22",
+    "paytabs_pt2": "^2.0.8",
+    "puppeteer": "^20.2.0",
+    "sequelize": "^6.31.0",
+    "uuid": "^9.0.0"
+  }
+}

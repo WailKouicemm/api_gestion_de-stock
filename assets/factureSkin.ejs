@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facture</title>
+    <link rel="stylesheet" href="facture_style.css">
+</head>
+<body>
+<header>
+    <img class="logo" src="logo.jpg" height="64px" width="64px">
+    <div class="title">
+        <h1>فاتورة</h1>
+        <h1>Invoice</h1>
+    </div>
+</header>
+<main>
+    <section class="store_info">
+        <h2>معلومات المتجر</h2>
+        <h2>Store info</h2>
+        <div class="field">
+            <h3>Store Name : <%= store.name%> </h3>
+            <div style="display: inline-block"><h3> <%= store.name +" : اسم المتجر"%> </h3></div>
+        </div>
+        <div class="field">
+            <h3>Delivery support phone number : <%= store.delivery_support_phone_number%></h3>
+            <h3> <%= store.delivery_support_phone_number+ ": رقم هاتف دعم التوصيل"%></h3>
+        </div>
+    </section>
+    <section class="user_info">
+        <h2>معلومات العميل</h2>
+        <h2>Client info</h2>
+        <div class="field">
+            <h3>Store Name : <%= client.name%></h3>
+            <h3> <%= client.name + ": اسم المتجر" %></h3>
+        </div>
+        <div class="field">
+            <h3>Owner Phone Number : <%=  client.phone_number %></h3>
+            <h3><%= client.phone_number+ ` : رقم هاتف المالك` %> </h3>
+        </div>
+    </section>
+    <section class="order_info">
+        <h2>معلومات الطلب</h2>
+        <h2>Order info</h2>
+        <div class="field">
+            <h3>Order Number : <%= order.id%></h3>
+            <h3><%= order.id +": رقم الطلب"%></h3>
+        </div>
+        <div class="field">
+            <h3>Order Date : <%= new Date(order.createdAt).toLocaleDateString()%></h3>
+            <h3><%= new Date(order.createdAt).toLocaleDateString() + " : تاريخ الطلب "%></h3>
+        </div>
+        <div class="field">
+            <h3>Order Amount : <%= order.amount%></h3>
+            <h3><%=  order.amount +" : مبلغ الطلب" %></h3>
+        </div>
+        <div class="field">
+            <h3>Products Count : <%= order.products_count%></h3>
+            <h3> <%= order.products_count+": عدد المنتجات" %></h3>
+        </div>
+    </section>
+    <section class="products_info">
+        <h2>المنتجات</h2>
+        <h2>Products</h2>
+        <div class="products_container">
+            <% for(const product of order.products ) { %>
+                <div class="product">
+                    <img src=<%= product.image_url %> width="150px" height="150px">
+                    <h4><%= product.name_ar + " : الاسم"%></h4>
+                    <h4><%= product.price + " : السعر"%></h4>
+                    <h4><%= product.quantity + " : الكمية"%></h4>
+                </div>
+            <% } %>
+        </div>
+
+    </section>
+    <section class="delivery_info">
+        <h2>معلومات التوصيل</h2>
+        <h2>Delivery info</h2>
+        <iframe class="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=<%=order.lat%>,<%=order.long%>&amp;t=p&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+    </section>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facture</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+
+        }
+
+        header{
+            background: #036e66;
+            height: 100px;
+            padding: 16px;
+        }
+        .logo ,.title{
+            display: inline-block;
+
+        }
+        .title{
+            margin: 0 calc((100% - 236px)/2) 0  calc((100% - 236px)/2);
+        }
+        .title h1{
+            text-align: center;
+            color: #fbd31c;
+            font-weight: bold;
+        }
+        h2{
+            text-decoration-line: underline;
+        }
+        section h2{
+            text-align: center;
+        }
+        main{
+            margin-top: 16px;
+            padding: 8px;
+        }
+        div h3{
+            display: inline-block;
+        }
+        .field{
+            display: flex;
+            justify-content: space-between;
+        }
+        h4{
+            display: inline-block;
+        }
+
+
+    </style>
+</head>
+<body>
+<header>
+    <img class="logo" src="https://api.sahm-sau.com/logo.jpg" height="64px" width="64px">
+    <div class="title">
+        <h1>سند قبض</h1>
+        <h1>Invoice</h1>
+    </div>
+</header>
+<main>
+    <section class="store_info">
+        <div class="field">
+            <h3>Number : <%= feePayment.id%></h3>
+            <h3><%= feePayment.id +": رقم "%></h3>
+        </div>
+        
+        <h2>معلومات المتجر</h2>
+        <h2>Store info</h2>
+        <div class="field">
+            <h3>Store Name : <%= store.name%> </h3>
+            <div style="display: inline-block"><h3> <%= store.name +" : اسم المتجر"%> </h3></div>
+        </div>
+        
+        <div class="field">
+            <h3>Tax number : <%= store.tax_number%></h3>
+            <h3> <%= store.tax_number+ ": الرقم الضريبي"%></h3>
+        </div>
+        <div class="field">
+            <h3>Store phone number : <%= store.phone_number%></h3>
+            <h3> <%= store.phone_number+ ": رقم هاتف المتجر"%></h3>
+        </div>
+        
+    </section>
+    <section class="order_info">
+        <h2>تفاصيل الدفع</h2>
+        <h2>Payment details</h2>
+        <div class="field">
+            <h3>Payment Date : <%= new Date(feePayment.updatedAt).toLocaleDateString()%></h3>
+            <h3><%= new Date(feePayment.updatedAt).toLocaleDateString() + " : تاريخ الدفع "%></h3>
+        </div>
+        <div class="field">
+            <h3>Payment amount : <%= feePayment.amount %> SAR</h3>
+            <h3><%=" ر.س " + feePayment.amount + " : قيمة الدفع "%></h3>
+        </div>
+    </section>
+</main>
+</body>
+</html>
